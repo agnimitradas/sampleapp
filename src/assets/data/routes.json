@@ -1,0 +1,25 @@
+[{
+        "id": "R1",
+        "name": "Hyderabad - Banglore"
+    },
+    {
+        "id": "R2",
+        "name": "Hyderabad - Mumbai"
+    },
+    {
+        "id": "R3",
+        "name": "Hyderabad - Pune"
+    },
+    {
+        "id": "R4",
+        "name": "Pune - Mumbai"
+    },
+    {
+        "id": "R5",
+        "name": "Banglore - Hyderabad"
+    },
+    {
+        "id": "R6",
+        "name": "Mumbai - Hyderabad"
+    }
+]

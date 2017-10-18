@@ -1,0 +1,25 @@
+@media(min-width:768px) {
+    input,
+    select {
+        width: 60%;
+        padding: 10px
+    }
+    .hbox input {
+        width: 50%;
+    }
+    .hbox {
+        margin-top: 5%
+    }
+}
+
+@media(max-width:768px) {
+    input,
+    select,
+    option {
+        width: 95%;
+        padding: 10px
+    }
+    .hbox {
+        margin-top: 25%
+    }
+}

@@ -1,0 +1,57 @@
+<div class="hbox">
+    <h1 class="text-center">Brand Name</h1>
+    <div class="col-md-offset-4">
+        <form #personForm="ngForm">
+            <div class="form-group">
+                <label>Full Name<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" [(ngModel)]="formInput.name" #name="ngModel" required>
+            </div>
+            <div class="errorMsg" *ngIf="name.errors && (name.dirty || name.touched)">
+                <p>Please enter Full Name</p>
+            </div>
+            <div class="form-group">
+                <label>Aadhar Number<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="aadharNo" id="aadharNo" placeholder="Aadhar Number" [(ngModel)]="formInput.aadharNo" #aadharNo="ngModel" required pattern="^[0-9]{12}$">
+            </div>
+            <div class="errorMsg" *ngIf="(aadharNo.errors && aadharNo.errors.required) && (aadharNo.dirty || aadharNo.touched)">
+                <p>Please enter Aadhar Number</p>
+            </div>
+            <div class="errorMsg" *ngIf="(aadharNo.errors && aadharNo.errors.pattern) && (aadharNo.dirty || aadharNo.touched)">
+                <p>Aadhar No should be 12 digits numerics only</p>
+            </div>
+            <div class="form-group">
+                <label>Contact Number<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="contactNo" id="contactNo" placeholder="Contact Number" [(ngModel)]="formInput.contactNo" #contactNo="ngModel" required pattern="^[0-9]{10}$">
+            </div>
+            <div class="errorMsg" *ngIf="(contactNo.errors && contactNo.errors.required) && (contactNo.dirty || contactNo.touched)">
+                <p>Please enter Contact Number</p>
+            </div>
+            <div class="errorMsg" *ngIf="(contactNo.errors && contactNo.errors.pattern)&& (contactNo.dirty || contactNo.touched)">
+                <p>Contact Number should be 10 digits numerics only</p>
+            </div>
+            <div class="form-group">
+                <label>Email Address<span class="text-danger">*</span></label>
+                <input type="email" class="form-control" name="emailId" id="emailId" placeholder="Email Address" [(ngModel)]="formInput.emailId" #emailId="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+            </div>
+            <div class="errorMsg" *ngIf="(emailId.errors && emailId.errors.required) && (emailId.dirty || emailId.touched)">
+                <p>Please enter Email Address</p>
+            </div>
+            <div class="errorMsg" *ngIf="(emailId.errors && emailId.errors.pattern) && (emailId.dirty || emailId.touched)">
+                <p>Email Id is not Valid</p>
+            </div>
+            <div class="form-group">
+                <label>Password<span class="text-danger">*</span></label>
+                <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password" [(ngModel)]="formInput.pwd" #pwd="ngModel" required>
+            </div>
+            <div class="errorMsg" *ngIf="pwd.errors && (pwd.dirty || pwd.touched)">
+                <p>Please enter a Password</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 pull-left">
+                    <button class="btn btn-success submitbtn" [disabled]="!personForm.form.valid" (click)="submitNew()">Submit</button>
+                    <button class="btn btn-warning" (click)="goToLogin()">Back to Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

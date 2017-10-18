@@ -1,0 +1,27 @@
+<div class="hbox">
+    <h1 class="text-center">Brand Name</h1>
+    <div class="col-md-offset-4">
+        <form #personForm="ngForm">
+            <div class="form-group">
+                <label>Username<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="UserName" [(ngModel)]="formInput.userName" #username="ngModel" required>
+            </div>
+            <div class="errorMsg" *ngIf="username.errors && (username.dirty || username.touched)">
+                <p>Please enter Username</p>
+            </div>
+            <div class="form-group">
+                <label>Password<span class="text-danger">*</span></label>
+                <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password" [(ngModel)]="formInput.pwd" #pwd="ngModel" required>
+            </div>
+            <div class="errorMsg" *ngIf="pwd.errors && (pwd.dirty || pwd.touched)">
+                <p>Please enter a Password</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 pull-left">
+                    <button class="btn btn-success submitbtn" [disabled]="!personForm.form.valid" (click)="login()">Login</button>
+                    <button class="btn btn-warning" (click)="register()">Register Now!</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

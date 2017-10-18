@@ -1,0 +1,14 @@
+@media(min-width:768px) {
+    .hbox input {
+        width: 50%;
+    }
+    .hbox {
+        margin-top: 10%
+    }
+}
+
+@media(max-width:768px) {
+    .hbox {
+        margin-top: 30%
+    }
+}
