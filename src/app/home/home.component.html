@@ -30,33 +30,46 @@
     <!-- /.row -->
 
     <!-- Content Row -->
-    <!--<div class="row">
+    <div class="row">
         <div class="thumbnail recentMatches col-md-4" *ngFor="let data of matchData">
             <h3>{{data.from | uppercase}} -> {{data.to | uppercase}}</h3>
-            <p>date: {{data.date}}</p>
+            <p>date: {{data.doj}}</p>
             <p>status: <span [style.color]="data.status === 'pending' ? 'red' : 'green'">{{data.status}}</span></p>
-            <button type="button" class="btn btn-default btn-lg" href="#" data-toggle="modal" data-target="#myModal">More Info</button>
+            <button type="button" class="btn btn-default btn-lg" (click)="openModal(data)">More Info</button>
         </div>
-        
-</div>-->
+
+    </div>
     <!-- /.row -->
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
+    <div class="backdrop" [ngStyle]="{'display':display}"></div>
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" *ngIf="populateModal.status !== 'pending'">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Journey</h4>
+                    <!--<button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">{{populateModal.from}} to {{populateModal.to}}</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
+                    <p>You are Pooling with:{{populateModal.partner.name}}</p>
+                    <p>Partner's Contact No:{{populateModal.partner.contactNo}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
                 </div>
             </div>
-
+            <div class="modal-content" *ngIf="populateModal.status == 'pending'">
+                <div class="modal-body">
+                    <h3>Hang on! We are mapping best match for You</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
         </div>
+        <!-- /.modal-dialog -->
     </div>
+    <!-- /.modal !-->
     <!-- Footer -->
     <footer>
         <div class="row">

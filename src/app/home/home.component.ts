@@ -9,8 +9,9 @@ import { HomeInfoService } from "../shared/pages.export";
   providers: [HomeInfoService]
 })
 export class HomeComponent implements OnInit {
-
-  matchData:any;  
+    display: any='none';
+    matchData:any;  
+    populateModal:any;
 
   constructor(private _router:Router,private _homeInfoService:HomeInfoService) { }
 
@@ -28,5 +29,15 @@ export class HomeComponent implements OnInit {
           });
     }
   }
+
+  openModal(data){
+    console.log(data);
+    this.populateModal = data;
+    this.display='block'; 
+  }
+
+  onCloseHandled(){
+    this.display='none'; 
+}
 
 }
