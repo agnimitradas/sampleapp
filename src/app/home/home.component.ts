@@ -11,7 +11,13 @@ import { HomeInfoService } from "../shared/pages.export";
 export class HomeComponent implements OnInit {
     display: any='none';
     matchData:any;  
-    populateModal:any;
+    populateModal:any={
+      "from": "",
+      "to": "",
+      "doj": "",
+      "status": "",
+      "partner": {}    
+    };
 
   constructor(private _router:Router,private _homeInfoService:HomeInfoService) { }
 
@@ -20,10 +26,10 @@ export class HomeComponent implements OnInit {
     if(!loggedInFlag){
       this._router.navigate(['login']);
     }else{
-      this.matchData =  this._homeInfoService.getAllMatches()
+      this._homeInfoService.getAllMatches()
           .subscribe(data=>{
               console.log(data);
-        this.matchData = data;
+            this.matchData = data;
           },error=>{
               console.log(error);
           });
