@@ -26,15 +26,19 @@ export class HomeComponent implements OnInit {
     if(!loggedInFlag){
       this._router.navigate(['login']);
     }else{
-      this._homeInfoService.getAllMatches()
+      this.getUpcomingMatchesData();
+    }
+  }
+
+  getUpcomingMatchesData(){
+    this._homeInfoService.getAllMatches()
           .subscribe(data=>{
               console.log(data);
             this.matchData = data;
           },error=>{
               console.log(error);
           });
-    }
-  }
+  } 
 
   openModal(data){
     console.log(data);
@@ -45,5 +49,9 @@ export class HomeComponent implements OnInit {
   onCloseHandled(){
     this.display='none'; 
 }
+
+  refresh(){
+    this.getUpcomingMatchesData();
+  }
 
 }

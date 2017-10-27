@@ -10,7 +10,7 @@
         <div class="col-md-4">
             <h1>Brand Name</h1>
             <p>This space is for brand descriptions.This space is for brand descriptions.This space is for brand descriptions.This space is for brand descriptions</p>
-            <a class="btn btn-primary btn-lg" [routerLink]="['/addnew']">Find a Match!</a>
+            <a class="btn btn-primary btn-lg" [routerLink]="['/addnew']">Book Now!</a>
         </div>
         <!-- /.col-md-4 -->
     </div>
@@ -22,8 +22,10 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="well text-center">
-                Recent Matches
+                Upcoming Trips
+                <button class="btn btn-default btn-xs pull-right" (click)="refresh()">Refresh</button>
             </div>
+
         </div>
         <!-- /.col-lg-12 -->
     </div>
