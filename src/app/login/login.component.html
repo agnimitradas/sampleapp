@@ -16,6 +16,10 @@
             <div class="errorMsg" *ngIf="pwd.errors && (pwd.dirty || pwd.touched)">
                 <p>Please enter a Password</p>
             </div>
+            <div class="row col-md-offset-3">
+                Forgot Password?
+                <a (click)="resetPwd()">Reset here</a>
+            </div>
             <div class="row">
                 <div class="col-sm-7 pull-left">
                     <button class="btn btn-success submitbtn" [disabled]="!personForm.form.valid" (click)="login()">Login</button>

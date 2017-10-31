@@ -45,23 +45,23 @@
                 <div class="form-group" *ngIf="formInput.havingTruckOption == 'truckyes'">
                     <label>Truck Number<span class="text-danger">*</span></label>
                     <input class="form-control" name="trucknumber" placeholder="Truck Number" [(ngModel)]="formInput.truckno" #pickup="ngModel" required>
-                    <label>Truck Number<span class="text-danger">*</span></label>
+                    <label>Driver's License Number<span class="text-danger">*</span></label>
                     <input class="form-control" name="licenseNo" placeholder="Driver's License Number" [(ngModel)]="formInput.licenseNo" #pickup="ngModel" required>
                 </div>
 
                 <div class="form-group">
                     <label>Truck Type <span class="text-danger">*</span></label>
                     <select class="form-control" [(ngModel)]="formInput.truckType" name="truckType" required>
-                        <option value="T1">T1(...)</option>
-                        <option value="T2">T2(...)</option>
+                        <option value="T1">T1(16000Kg,L=23ft,B=7ft)</option>
+                        <option value="T2">T2(10000Kg,L=18ft,B=7ft)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>Total Spaces Required <span class="text-danger">*</span></label>
                     <select class="form-control" [(ngModel)]="formInput.spacesRequired" name="spacesRequired" required>
-                        <option value="L1">L1 (50% of Overall capacity)</option>
-                        <option value="L2">L2 (100% of Overall capacity)</option>
+                        <option value="L1">L1 (100% of Overall capacity)</option>
+                        <option value="L2">L2 (50% of Overall capacity)</option>
                     </select>
                 </div>
 
